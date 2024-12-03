@@ -44,12 +44,55 @@ Write the detailed procedure here
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+```
+//full adder
+module exp4(sum,cout,a,b,cin);
+output sum;
+output cout;
+input a;
+input b;
+input cin;
+
+//internal nets
+wire s1,c1,c2;
+
+//Instantiate logic gate primitives
+
+xor (s1,a,b);
+and(c1,a,b);
+xor(sum,s1,cin);
+and(c2,s1,cin);
+or(cout,c2,c1);
+endmodule
+
+module exp4a (df,bo,a,b,bin);
+output df;
+output bo;
+input a;
+input b;
+input bin;
+wire w1,w2,w3;
+assign w1=a^b;
+assign w2=(~a&b);
+assign w3=(~w1&bin);
+assign df=w1^bin;
+assign bo=w2|w3;
+endmodule
+```
+Developed by:MADHANN KUMAR V RegisterNumber:24010027
 */
 
 **RTL Schematic**
+![WhatsApp Image 2024-12-03 at 11 27 48_70c7405a](https://github.com/user-attachments/assets/fa793108-f8c0-496a-973d-722fc4b766d8)
+
+**RTL Schematic 4A**
+![WhatsApp Image 2024-12-03 at 11 29 11_bb5226f9](https://github.com/user-attachments/assets/4d812791-bca0-4039-9500-f3589f1e2fe8)
 
 **Output Timing Waveform**
+![WhatsApp Image 2024-12-03 at 11 30 33_bc4ed5b9](https://github.com/user-attachments/assets/8b8847e3-14a7-4a7f-90ea-f3648e3daf1f)
+**Output Timing Waveform 4A**
+![WhatsApp Image 2024-12-03 at 11 31 37_f1a08232](https://github.com/user-attachments/assets/2ca5cb9f-6471-478f-b711-583620966272)
 
 **Result:**
 
